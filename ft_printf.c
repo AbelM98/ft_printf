@@ -6,26 +6,23 @@
 /*   By: abel <abel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 13:51:10 by amolina           #+#    #+#             */
-/*   Updated: 2025/10/18 02:31:44 by abel             ###   ########.fr       */
+/*   Updated: 2025/10/18 02:50:10 by abel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "libftprintf.h"
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <limits.h>
-# include <unistd.h>
 
-int ft_typedet_print(char ph,va_list m, int count)
+int ft_typedet_print(char ph,va_list m)
 {
 	char	c;
 	
 	if (ph == 'c')
+	{
 		c = (char)va_arg(m, int);
-	write (1, &c, 1);
-	return (count + 1);
+		write (1, &c, 1);
+		return (1);
+	}
+	return (0);
 }
 // int	ft_putnbr(int nb, int count)
 // {
@@ -67,7 +64,7 @@ int	ft_printf(char const *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			printed = ft_typedet_print(*str, ap, printed);
+			printed += ft_typedet_print(*str, ap);
 		}
 		else
 		{
@@ -86,9 +83,9 @@ int main (void)
 
 	i = 0;
 	i = ft_printf("MF %c, %c, %c \n", 'l', 'o', 'l');
-	(void)printf (":%d\n", i);
-	i = printf("OF %c, \n", 'l', 'o', 'l');
-	(void)printf (":%d\n", i);
+	(void)printf(":%d\n", i);
+	i = printf("OF %c, %c, %c \n", 'l', 'o', 'l');
+	(void)printf(":%d\n", i);
 
 	return (0);
 }
