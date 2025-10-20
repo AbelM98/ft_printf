@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abel <abel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: amolina <amolina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 13:54:49 by amolina           #+#    #+#             */
-/*   Updated: 2025/10/18 02:47:52 by abel             ###   ########.fr       */
+/*   Updated: 2025/10/20 19:06:14 by amolina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,16 @@
 # include <string.h>
 # include <limits.h>
 # include <unistd.h>
+# include <stdint.h>
+//# include "LIBFT/libft.h"
 
 // FUNCTIONS
 
 int	ft_printf(char const *, ...);
+int	ft_aux_alpha(va_list m,char s);
+int	ft_aux_nb(va_list m, char s);
+int	ft_strlen(const char *s);
+int	ft_putnbr(int nb);
+int	ft_putnbr_u(unsigned int n);
 
 #endif
