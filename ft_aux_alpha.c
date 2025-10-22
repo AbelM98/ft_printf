@@ -6,11 +6,11 @@
 /*   By: amolina <amolina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:57:23 by amolina           #+#    #+#             */
-/*   Updated: 2025/10/22 11:38:33 by amolina          ###   ########.fr       */
+/*   Updated: 2025/10/22 11:53:06 by amolina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_strlen(const char *str)
 {

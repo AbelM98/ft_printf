@@ -6,11 +6,11 @@
 /*   By: amolina <amolina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:57:28 by amolina           #+#    #+#             */
-/*   Updated: 2025/10/22 11:40:53 by amolina          ###   ########.fr       */
+/*   Updated: 2025/10/22 12:35:18 by amolina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr_u(unsigned int n)
 {
@@ -69,7 +69,6 @@ int	ft_aux_nb(va_list m, char s)
 {
 	int				i;
 	unsigned int	j;
-	uintptr_t		p;
 
 	if (s == 'd' || s == 'i')
 	{
@@ -84,14 +83,6 @@ int	ft_aux_nb(va_list m, char s)
 		if (s == 'X')
 			return (ft_putnbr_base_h(j, "0123456789ABCDEF"));
 		return (ft_putnbr_u(j));
-	}
-	else if (s == 'p')
-	{
-		p = (uintptr_t)va_arg(m, uintptr_t);
-		if (p == 0)
-			return ((int)write(1, "(nil)", 5));
-		i = (int)write(1, "0x", 2);
-		return (ft_putnbr_base_h(p, "0123456789abcdef") + i);
 	}
 	return (0);
 }

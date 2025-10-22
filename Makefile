@@ -4,12 +4,14 @@ NAME		= libftprintf.a
 # SRCS && OBJS
 SRCS		= ft_printf.c \
 			ft_aux_alpha.c \
-			ft_aux_nb.c
+			ft_aux_nb.c \
+			ft_aux_ptr.c
+			
 OBJS		= $(SRCS:.c=.o)
 
 # COMPILER
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -I./includes 
+CFLAGS		= -Wall -Wextra -Werror
 AR			= ar rcs
 RM			= rm -f
 
@@ -17,18 +19,15 @@ RM			= rm -f
 all: $(NAME)
 
 $(NAME): $(OBJS)
-#	cp $(LIBFT) $(NAME)
 	$(AR) $(NAME) $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
-	@make -C  clean
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) fclean
 
 re: fclean all
 
