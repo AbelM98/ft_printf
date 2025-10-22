@@ -6,15 +6,15 @@
 /*   By: amolina <amolina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:57:28 by amolina           #+#    #+#             */
-/*   Updated: 2025/10/20 19:07:25 by amolina          ###   ########.fr       */
+/*   Updated: 2025/10/22 11:40:53 by amolina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libftprintf.h"
+#include "libftprintf.h"
 
-int ft_putnbr_u(unsigned int n)
+int	ft_putnbr_u(unsigned int n)
 {
-	int	count;
+	int		count;
 	char	c;
 
 	count = 0;
@@ -24,6 +24,7 @@ int ft_putnbr_u(unsigned int n)
 	count += write(1, &c, 1);
 	return (count);
 }
+
 //pseudo putnt
 int	ft_putnbr(int nb)
 {
@@ -39,7 +40,7 @@ int	ft_putnbr(int nb)
 	if (nb < 0)
 	{
 		write(1, "-", 1);
-			nb = nb * (-1);
+		nb = nb * (-1);
 		count++;
 	}
 	if (nb > 9)
@@ -48,24 +49,27 @@ int	ft_putnbr(int nb)
 	count += ((int)write(1, &c, 1));
 	return (count);
 }
+
 //pseudo putnbr_base
 int	ft_putnbr_base_h(uintptr_t nbr, const char *base)
 {
 	int		count;
 	char	c;
-	
+
 	count = 0;
 	if (nbr >= 16)
-		count += ft_putnbr_base_h(nbr/16, base);
+		count += ft_putnbr_base_h(nbr / 16, base);
 	c = base[nbr % 16];
 	count += write(1, &c, 1);
 	return (count);
 }
+
 //type convertion for numeric data
 int	ft_aux_nb(va_list m, char s)
 {
 	int				i;
 	unsigned int	j;
+	uintptr_t		p;
 
 	if (s == 'd' || s == 'i')
 	{
@@ -81,10 +85,8 @@ int	ft_aux_nb(va_list m, char s)
 			return (ft_putnbr_base_h(j, "0123456789ABCDEF"));
 		return (ft_putnbr_u(j));
 	}
-	else if(s == 'p')
+	else if (s == 'p')
 	{
-		uintptr_t	p;
-
 		p = (uintptr_t)va_arg(m, uintptr_t);
 		if (p == 0)
 			return ((int)write(1, "(nil)", 5));

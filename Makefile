@@ -1,79 +1,35 @@
-SRCS		=	ft_printf.c \
-				ft_aux_alpha.c \
-				ft_aux_nb.c \
-#				ft_itoa.c \
-#				ft_bzero.c \
-#				ft_calloc.c \
-#				ft_isalnum.c \
-#				ft_isalpha.c \
-#				ft_isascii.c \
-#				ft_isdigit.c \
-#				ft_isprint.c \
-#				ft_memchr.c \
-#				ft_memcmp.c \
-#				ft_memcpy.c \
-#				ft_memmove.c \
-#				ft_memset.c \
-#				ft_strtrim.c \
-#				ft_strchr.c \
-#				ft_strdup.c \
-#				ft_strjoin.c \
-#				ft_strlcat.c \
-#				ft_strlcpy.c \
-#				ft_strlen.c \
-#				ft_strncmp.c \
-#				ft_strnstr.c \
-#				ft_strrchr.c \
-#				ft_substr.c \
-#				ft_tolower.c \
-#				ft_toupper.c \
-#				ft_split.c \
-#				ft_strmapi.c \
-#				ft_striteri.c \
-#				ft_putchar_fd.c \
-#				ft_putstr_fd.c \
-#				ft_putendl_fd.c \
-#				ft_putnbr_fd.c
+# PATHS && NAMES
+NAME		= libftprintf.a
 
-OBJS		=	$(SRCS:.c=.o)
+# SRCS && OBJS
+SRCS		= ft_printf.c \
+			ft_aux_alpha.c \
+			ft_aux_nb.c
+OBJS		= $(SRCS:.c=.o)
 
-#BONUS		=	ft_lstnew_bonus.c \
-#				ft_lstadd_front_bonus.c \
-#				ft_lstsize_bonus.c \
-#				ft_lstlast_bonus.c \
-#				ft_lstadd_back_bonus.c \
-#				ft_lstdelone_bonus.c \
-#				ft_lstclear_bonus.c \
-#				ft_lstiter_bonus.c \
-#				ft_lstmap_bonus.c
+# COMPILER
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -I./includes 
+AR			= ar rcs
+RM			= rm -f
 
-#BONUS_OBJS	=	$(BONUS:.c=.o)
+# TARGETS
+all: $(NAME)
 
-CC			=	cc
-RM			=	rm -f
-CFLAGS		=	-Wall -Wextra -Werror
-#BONUS_FLAG	=	.bonus
-
-NAME		=	
-
-all:			$(NAME)
-
-$(NAME):		$(OBJS)
-				ar -rcs $(NAME) $(OBJS)
+$(NAME): $(OBJS)
+#	cp $(LIBFT) $(NAME)
+	$(AR) $(NAME) $(OBJS)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-				$(RM) $(OBJS)
+	$(RM) $(OBJS)
+	@make -C  clean
 
-fclean:			clean
-				$(RM) $(NAME) 
-#				$(BONUS_OBJS) $(BONUS_FLAG)
+fclean: clean
+	$(RM) $(NAME)
+	$(RM) fclean
 
-re:				fclean all
+re: fclean all
 
-#bonus:			$(BONUS_FLAG)
-
-#$(BONUS_FLAG):	$(OBJS) $(BONUS_OBJS)
-#				ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-#				touch $(BONUS_FLAG)
-
-.PHONY:			all clean fclean re
+.PHONY: all clean fclean re
