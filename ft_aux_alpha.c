@@ -6,7 +6,7 @@
 /*   By: amolina <amolina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:57:23 by amolina           #+#    #+#             */
-/*   Updated: 2025/10/22 11:53:06 by amolina          ###   ########.fr       */
+/*   Updated: 2025/10/22 16:21:24 by amolina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int	ft_aux_alpha(va_list m, char s)
 	}
 	else if (s == 's')
 	{
-		str = (char *)va_arg(m, char *);
+		str = va_arg(m, char *);
+		if (str == NULL)
+			return ((int)write(1, "(null)", 6));
 		i = ft_strlen(str);
 		return ((int)write (1, str, i));
 	}
