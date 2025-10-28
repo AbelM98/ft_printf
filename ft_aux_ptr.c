@@ -6,12 +6,13 @@
 /*   By: amolina <amolina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 12:25:05 by amolina           #+#    #+#             */
-/*   Updated: 2025/10/22 12:38:53 by amolina          ###   ########.fr       */
+/*   Updated: 2025/10/28 13:37:00 by amolina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+//pseudo putnbr(ptr_0x)
 int	ft_aux_ptr(va_list m)
 {
 	uintptr_t		p;

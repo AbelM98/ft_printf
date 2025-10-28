@@ -6,7 +6,7 @@
 /*   By: amolina <amolina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 13:51:10 by amolina           #+#    #+#             */
-/*   Updated: 2025/10/22 16:22:25 by amolina          ###   ########.fr       */
+/*   Updated: 2025/10/28 13:22:55 by amolina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,3 @@ int	ft_printf(char const *str, ...)
 	return (va_end(ap), printed);
 }
 
-/*int	main(void)
-{
-	int				i;
-	void			*p;
-	unsigned int	u;
-	int				j;
-	char *str = NULL;
-
-	u = 989993;
-	i = 0;
-	j = INT_MIN;
-	p = 0;
-	ft_printf("MF: NULL %s NULL \n", str);
-	printf("OF: NULL %s NULL \n", str);
-	i = ft_printf("MF %c, %s, %%, %d, %p, %x, %X, %u \n", 'l', "Oklahoma",
-			j, p, u, u, u);
-	(void)printf(":%d\n", i);
-	i = printf("OF %c, %s, %%, %d, %p, %x, %X, %u \n", 'l', "Oklahoma",
-			j, p, u, u, u);
-	(void)printf(":%d\n", i);
-	return (0);
-}*/

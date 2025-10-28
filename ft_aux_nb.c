@@ -6,12 +6,13 @@
 /*   By: amolina <amolina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:57:28 by amolina           #+#    #+#             */
-/*   Updated: 2025/10/22 12:35:18 by amolina          ###   ########.fr       */
+/*   Updated: 2025/10/28 13:36:16 by amolina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+//pseudo putnbr(unsigned int)
 int	ft_putnbr_u(unsigned int n)
 {
 	int		count;
@@ -25,7 +26,7 @@ int	ft_putnbr_u(unsigned int n)
 	return (count);
 }
 
-//pseudo putnt
+//pseudo putnbr
 int	ft_putnbr(int nb)
 {
 	char	c;
